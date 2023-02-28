@@ -20,12 +20,12 @@ Next, set an environment variable with your Snowflake password:
 
 ```bash
 # Linux/MacOS
-set SNOWFLAKE_PASSWORD=<your-password>
+set SNOWSQL_PASSWORD=<your-password>
 ```
 
 ```bash
 # Windows
-$env:SNOWFLAKE_PASSWORD = <your-password>
+$env:SNOWSQL_PASSWORD = <your-password>
 ```
 
 Optional: You can set this env var permanently by editing your bash profile (on Linux/MacOS) or 
