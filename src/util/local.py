@@ -1,29 +1,26 @@
 from snowflake.snowpark.session import Session
-import tomli
-import os
+from pathlib import Path
+
+import configparser
+import toml
 
 
-class LocalSession:
-
-    def get_local_session(self) -> Session:
-        toml_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../app.toml'))
-
-        try:
-            pwd = os.environ['SNOWSQL_PWD']
-
-            with open(toml_path, 'rb') as f:
-                conn = tomli.load(f)['dev']
-
-                return Session.builder.configs({
-                    'account': conn['accountname'],
-                    'user': conn['username'],
-                    'password': pwd,
-                    'database': conn['database'],
-                    'schema': conn['schema'],
-                    'role': conn['role'],
-                    'warehouse': conn['warehouse']
-                }).create()
-                
-        except KeyError as e:
-            print('ERROR: Environment variable, SNOWSQL_PASSWORD, not found. Please set this variable.')
-            raise e
+def get_dev_config(
+    environment: str = "dev",
+    app_config_path: Path = Path.cwd().joinpath("app.toml"),
+) -> dict:
+    try:
+        app_config = toml.load(app_config_path)
+        config = configparser.ConfigParser(inline_comment_prefixes="#")
+        config.read(app_config["snowsql_config_path"])
+        session_config = config["connections." + app_config["snowsql_connection_name"]]
+        session_config_dict = {
+            k.replace("name", ""): v.strip('"') for k, v in session_config.items()
+        }
+        session_config_dict.update(app_config.get(environment))  # type: ignore
+        return session_config_dict
+    except Exception:
+        raise Exception(
+            "Error creating snowpark session - be sure you've logged into "
+            "the SnowCLI and have a valid app.toml file",
+        )

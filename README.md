@@ -76,6 +76,15 @@ python -m pytest
 
 ### Deploy to Snowflake
 
+#### Deploy locally
+
+1. Install snmow cli
+1. `snow connection add` from project root
+1. `snow login` from project root
+1. `snow configure` 
+
+#### Deploy from CI Pipeline
+
 The GitHub Actions [workflow file](.github/workflows/build-and-deploy.yml) allows you to continously deploy your objects to Snowflake. When you're ready,
 create a secret in your GitHub repository named `SNOWSQL_PASSWORD` with your account password. Then, replace the placeholders in the [workflow file](.github/workflows/build-and-deploy.yml)
 with your username, database, and other account information.

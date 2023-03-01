@@ -1,7 +1,8 @@
+snowsql_config_path = ""
+snowsql_connection_name = ""
+
 [dev]
-accountname = "pm"
-username = ""
-database = ""
-schema = ""
-role = ""
-warehouse = ""
+database = "jasonfreeberg"
+schema = "public"
+role = "accountadmin"
+warehouse = "freeberg_snowpark"
