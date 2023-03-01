@@ -2,7 +2,7 @@ snowsql_config_path = ""
 snowsql_connection_name = ""
 
 [dev]
-database = "jasonfreeberg"
-schema = "public"
-role = "accountadmin"
-warehouse = "freeberg_snowpark"
+database = ""
+schema = ""
+role = ""
+warehouse = ""
