@@ -14,22 +14,9 @@ To develop your applications locally, you will need
 
 ### Set Credentials
 
-Set your account URL, username, role, database, and schema in [app.toml](app.toml).
-
-Next, set an environment variable with your Snowflake password:
-
-```bash
-# Linux/MacOS
-set SNOWSQL_PASSWORD=<your-password>
-```
-
-```bash
-# Windows
-$env:SNOWSQL_PASSWORD = <your-password>
-```
-
-Optional: You can set this env var permanently by editing your bash profile (on Linux/MacOS) or 
-using the System Properties menu (on Windows).
+1. Install snow cli
+1. `snow connection add` 
+1. `snow login`
 
 ### Install dependencies
 
@@ -75,13 +62,6 @@ python -m pytest
 ```
 
 ### Deploy to Snowflake
-
-#### Deploy locally
-
-1. Install snmow cli
-1. `snow connection add` from project root
-1. `snow login` from project root
-1. `snow configure` 
 
 #### Deploy from CI Pipeline
 
