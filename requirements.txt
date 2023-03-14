@@ -1,4 +1,3 @@
-pytest
 snowflake-snowpark-python
 tomli
 toml
