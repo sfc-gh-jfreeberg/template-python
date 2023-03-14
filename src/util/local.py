@@ -36,7 +36,7 @@ def get_dev_config(
     app_config_path: Path = Path.cwd().joinpath("app.toml"),
 ) -> dict:
     """
-    Returns a dictionary of the connection parameters using the app.toml 
+    Returns a dictionary of the connection parameters using the app.toml
     in the project root.
     """
     try:

@@ -52,7 +52,7 @@ cd src
 python procs/app.py
 ```
 
-You should see output like this:
+You should see the following output:
 
 ```
 ------------------------------------------------------
