@@ -14,22 +14,32 @@ To develop your applications locally, you will need
 
 ### Set Credentials
 
-1. Install snow cli
-1. `snow connection add` 
-1. `snow login`
+Set the following environment variables with your Snowflake account information:
+
+```bash
+set SNOWSQL_ACCOUNT=<replace with your account identifer>
+set SNOWSQL_USER=<replace with your username>
+set SNOWSQL_PWD=<replace with your password>
+set SNOWSQL_DATABASE=<replace with your database>
+set SNOWSQL_SCHEMA=<replace with your schema>
+set SNOWSQL_WAREHOUSE=<replace with your warehouse>
+```
+
+Optional: You can set this env var permanently by editing your bash profile (on Linux/MacOS) or 
+using the System Properties menu (on Windows).
 
 ### Install dependencies
 
 Set up a virtual environment using [Anaconda](), [Miniconda](), or [virtualenv](). For example, the following command will create and activate a virtual environment named `venv`:
 
-```
+```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 Next, import the packages in [requirements.txt](requirements.txt):
 
-```
+```bash
 pip install -r requirements.txt
 ```
 

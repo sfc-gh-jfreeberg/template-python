@@ -35,6 +35,10 @@ def get_dev_config(
     environment: str = "dev",
     app_config_path: Path = Path.cwd().joinpath("app.toml"),
 ) -> dict:
+    """
+    Returns a dictionary of the connection parameters using the app.toml 
+    in the project root.
+    """
     try:
         app_config = toml.load(app_config_path)
         config = configparser.ConfigParser(inline_comment_prefixes="#")
