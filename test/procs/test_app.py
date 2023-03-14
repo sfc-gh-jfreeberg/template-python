@@ -1,16 +1,13 @@
-import pytest
 import os
-
-from snowflake.snowpark import Row
-from src.util.local import get_dev_config
-from src.procs.app import run
+import pytest
 from snowflake.snowpark.session import Session
+from src.util.local import get_env_var_config
+from src.procs.app import run
 
 
 @pytest.fixture
 def local_session():
-    p = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../app.toml'))
-    return Session.builder.configs(get_dev_config("dev", p)).create() 
+    return Session.builder.configs(get_env_var_config()).create()
 
 
 @pytest.fixture(autouse=True)
