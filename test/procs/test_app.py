@@ -16,6 +16,7 @@ def set_working_directory():
 def local_session():
     return Session.builder.configs(get_env_var_config()).create()
 
+
 @pytest.mark.snowflake_vcr
 def test_app_dim(local_session):
     expected_n_rows = 2
