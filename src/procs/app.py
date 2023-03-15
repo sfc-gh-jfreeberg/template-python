@@ -50,6 +50,8 @@ if __name__ == "__main__":
 
     from src.util.local import get_env_var_config
 
+    print("Creating session...")
     session = Session.builder.configs(get_env_var_config()).create()
 
+    print("Running stored proc...")
     run(session)
