@@ -17,12 +17,23 @@ To develop your applications locally, you will need
 Set the following environment variables with your Snowflake account information:
 
 ```bash
+# Linux/MacOS
 set SNOWSQL_ACCOUNT=<replace with your account identifer>
 set SNOWSQL_USER=<replace with your username>
 set SNOWSQL_PWD=<replace with your password>
 set SNOWSQL_DATABASE=<replace with your database>
 set SNOWSQL_SCHEMA=<replace with your schema>
 set SNOWSQL_WAREHOUSE=<replace with your warehouse>
+```
+
+```powershell
+# Windows/PowerShell
+$env:SNOWSQL_ACCOUNT = "<replace with your account identifer>"
+$env:SNOWSQL_USER = "<replace with your username>"
+$env:SNOWSQL_PWD = "<replace with your password>"
+$env:SNOWSQL_DATABASE = "<replace with your database>"
+$env:SNOWSQL_SCHEMA = "<replace with your schema>"
+$env:SNOWSQL_WAREHOUSE = "<replace with your warehouse>"
 ```
 
 Optional: You can set this env var permanently by editing your bash profile (on Linux/MacOS) or 
